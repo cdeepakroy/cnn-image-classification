@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<executable>
+  <category>Deep learning</category>
+  <title>Classify Nuclei</title>
+  <description>Classify nuclei using one of the popular pre-trained CNN models on the ImageNet dataset</description>
+  <version>0.1.0</version>
+  <documentation-url>https://github.com/cdeepakroy/cnn-image-classification</documentation-url>
+  <license>Apache 2.0</license>
+  <contributor>Deepak Roy Chittajallu (Kitware)</contributor>
+  <parameters>
+    <label>IO</label>
+    <description>Input/output parameters</description>
+    <image>
+      <name>inputImageFile</name>
+      <label>Input Image</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description>Input image</description>
+    </image>
+    <string-enumeration>
+      <name>model</name>
+      <label>CNN Model</label>
+      <description>Pretrained CNN model that should be used to classify the image</description>
+      <channel>input</channel>
+      <longflag>model</longflag>
+      <element>InceptionV3</element>
+      <element>ResNet50</element>      
+      <element>VGG16</element>
+      <element>VGG19</element>
+      <element>Xception</element>
+      <default>ResNet50</default>
+    </string-enumeration>
+    <file fileExtensions=".json" reference="inputImageFile">
+      <name>outputClassificationFile</name>
+      <label>Output Classification File</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description>Output classification file</description>
+    </file>
+  </parameters>
+</executable>
