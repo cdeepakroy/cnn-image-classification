@@ -4,7 +4,7 @@ MAINTAINER Deepak Roy Chittajallu <deepk.chittajallu@kitware.com>
 # Install system pre-requisites
 RUN apt-get update && \
     apt-get install -y \
-    build-essential wget git
+    build-essential wget git \
     libcupti-dev && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
