@@ -1,4 +1,4 @@
-import os
+import os, json
 from pydoc import locate
 import numpy as np
 
@@ -42,13 +42,15 @@ def main(args):
     pred = imagenet_utils.decode_predictions(model.predict(im))[0]
 
     # write result
-    with open('res.txt', 'w') as f:
+    res = []
 
-        for (class_id, class_name, class_prob) in pred:
+    for (class_id, class_name, class_prob) in pred:
 
-            f.write(class_name + ' : ' + str(class_prob) + '\n')
-
-            print class_name + ' : ' + str(class_prob)
+        print class_name + ' : ' + str(class_prob)
+        res.append([class_name, class_prob])
+    
+    with open(args.outputClassificationFile, 'w') as f:
+        f.write(json.dumps(res, indent=1))
 
 if __name__ == "__main__":
     main(CLIArgumentParser().parse_args())
