@@ -24,10 +24,9 @@ ENV PATH $BUILD_PATH/miniconda/bin:${PATH}
 
 # Download and install slicer_cli_web
 RUN cd $BUILD_PATH && \
+    conda install --yes -c cdeepakroy ctk-cli=1.4.1 && \
     git clone https://github.com/girder/slicer_cli_web.git && \
     cd slicer_cli_web && \
-    git checkout take_cpp_cli_from_path && \
-    conda install --yes -c cdeepakroy ctk-cli=1.4.1 && \
     find . -depth -name .git -exec rm -rf '{}' \;                   
 
 # Copy cnn-image-classification files
