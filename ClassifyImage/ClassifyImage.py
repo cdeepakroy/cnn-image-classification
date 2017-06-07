@@ -1,4 +1,5 @@
-import os, json
+import os
+import json
 from pydoc import locate
 import numpy as np
 
@@ -47,8 +48,8 @@ def main(args):
     for (class_id, class_name, class_prob) in pred:
 
         print class_name + ' : ' + str(class_prob)
-        res.append([class_name, class_prob])
-    
+        res.append([class_name, float(class_prob)])
+
     with open(args.outputClassificationFile, 'w') as f:
         f.write(json.dumps(res, indent=1))
 
