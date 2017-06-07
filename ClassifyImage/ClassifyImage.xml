@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <executable>
   <category>Deep learning</category>
-  <title>Classify Nuclei</title>
-  <description>Classify nuclei using one of the popular pre-trained CNN models on the ImageNet dataset</description>
+  <title>Classify Image</title>
+  <description>Classify image using one of the top-performing pre-trained CNN models in the ImageNet challenge</description>
   <version>0.1.0</version>
   <documentation-url>https://github.com/cdeepakroy/cnn-image-classification</documentation-url>
   <license>Apache 2.0</license>
@@ -30,7 +30,7 @@
       <element>Xception</element>
       <default>ResNet50</default>
     </string-enumeration>
-    <file fileExtensions=".json" reference="inputImageFile">
+    <file fileExtensions=".json">
       <name>outputClassificationFile</name>
       <label>Output Classification File</label>
       <channel>output</channel>
