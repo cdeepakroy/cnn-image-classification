@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn5-runtime-ubuntu16.04
+FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
 MAINTAINER Deepak Roy Chittajallu <deepk.chittajallu@kitware.com>
 
 # Install system pre-requisites
@@ -35,7 +35,9 @@ RUN mkdir -p $cnn_image_classification_path
 COPY . $cnn_image_classification_path
 WORKDIR $cnn_image_classification_path
 RUN pip install --ignore-installed --upgrade pip setuptools && \
-    pip install -U -r requirements.txt
+    pip install -U -r requirements.txt && \
+    cd ClassifyImage && \
+    bash cache_pretrained_models.sh
 
 # Set entrypoint
 ENTRYPOINT ["/build/miniconda/bin/python", "/build/slicer_cli_web/server/cli_list_entrypoint.py"]

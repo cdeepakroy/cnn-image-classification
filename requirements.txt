@@ -5,3 +5,4 @@ scipy
 scikit-learn
 pillow
 h5py
+xmltodict
